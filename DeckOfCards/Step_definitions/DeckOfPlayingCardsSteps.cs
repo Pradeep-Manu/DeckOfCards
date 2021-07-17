@@ -75,13 +75,14 @@ namespace DeckOfCards.Step_definitions
             var details = table.CreateSet<CarsAndPoints>();
             int points = 0;
             int.TryParse(SelectedcardPoints, out points);
-            foreach (var row in details)
+            foreach (Card card in cards.Where(x => x.points == points))
             {
-                foreach (Card card in cards.Where(x=>x.points == points))
+                foreach (var itm in details)
                 {
-                    if (row.Rank == card.Rank)
+
+                    if (itm.Rank == card.Rank)
                     {
-                        Assert.AreEqual(row.Points,card.points);
+                        Assert.AreEqual(itm.Points, card.points);
                     }
                 }
             }
@@ -99,8 +100,8 @@ namespace DeckOfCards.Step_definitions
                               orderby a.Suit,a.sortOrder
                               select a).ToList();
             Assert.AreEqual(orderedCards[49].Rank, "Jack");
-            Assert.AreEqual(orderedCards[50].Rank, "Queen");
-            Assert.AreEqual(orderedCards[51].Rank, "King");
+            Assert.AreEqual(orderedCards[50].Rank, "King");
+            Assert.AreEqual(orderedCards[51].Rank, "Queen");
 
         }
 
