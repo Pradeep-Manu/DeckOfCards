@@ -17,8 +17,6 @@ namespace DeckOfCards.Step_definitions
         Deck newDeck; 
         List<string> suits;
         List<Card> cards;
-        //List<Card> cards2;
-        //Card card;
 
         [Given(@"a deck of cards")]
         public void GivenADeckOfCards()
@@ -83,7 +81,6 @@ namespace DeckOfCards.Step_definitions
                 {
                     if (row.Rank == card.Rank)
                     {
-                        //row["<point_value>"].Should().Be(1.ToString());
                         Assert.AreEqual(row.Points,card.points);
                     }
                 }
