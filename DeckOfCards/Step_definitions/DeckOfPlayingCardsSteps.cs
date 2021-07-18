@@ -72,7 +72,7 @@ namespace DeckOfCards.Step_definitions
         [Then(@"the card is worth (.*)")]
         public void ThenTheCardIsWorth(string SelectedcardPoints, Table table)
         {
-            var details = table.CreateSet<CarsAndPoints>();
+            var details = table.CreateSet<CardsAndPoints>();
             int points = 0;
             int.TryParse(SelectedcardPoints, out points);
             foreach (Card card in cards.Where(x => x.points == points))
@@ -100,8 +100,8 @@ namespace DeckOfCards.Step_definitions
                               orderby a.Suit,a.sortOrder
                               select a).ToList();
             Assert.AreEqual(orderedCards[49].Rank, "Jack");
-            Assert.AreEqual(orderedCards[50].Rank, "King");
-            Assert.AreEqual(orderedCards[51].Rank, "Queen");
+            Assert.AreEqual(orderedCards[50].Rank, "Queen");
+            Assert.AreEqual(orderedCards[51].Rank, "King");
 
         }
 

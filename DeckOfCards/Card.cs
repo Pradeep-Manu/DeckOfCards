@@ -34,7 +34,7 @@ namespace DeckOfCards
             get
             {
                 int num = 0;
-                switch (Suit)
+                switch (Rank)
                 {
                     case "ace":
                        return 1;
@@ -46,7 +46,7 @@ namespace DeckOfCards
                         return 13;
                     default:
                         {
-                            int.TryParse(Suit, out num);
+                            int.TryParse(Rank, out num);
                             return num;
                         }
                 }
@@ -63,7 +63,7 @@ namespace DeckOfCards
         }
     }
 
-    public class CarsAndPoints
+    public class CardsAndPoints
     {
         public string Rank { get; set; }
         public int Points { get; set; }
